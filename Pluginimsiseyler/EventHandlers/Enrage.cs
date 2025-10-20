@@ -1,5 +1,7 @@
 ﻿using Exiled.API.Features;
 using Exiled.Events.EventArgs.Scp096;
+using PluginAPI.Core;
+using Respawning;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,8 @@ namespace Pluginimsiseyler.EventHandlers
     {
         public static void Enraged(EnragingEventArgs ev)
         {
-            Cassie.Message("O h hello.");
+            Exiled.API.Features.Cassie.Message("Hello");
         }
+        
     }
 }
