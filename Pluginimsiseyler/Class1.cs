@@ -9,14 +9,14 @@ namespace Pluginimsiseyler
         public override void OnEnabled()
         {
             Instance = this;
-            enrage.Enraging += EventHandlers.Enrage.Enraged;
+            enrage.Enraging += EventHandlers.Enrage.Enreage;
              base.OnEnabled();   
         }
 
         public override void OnDisabled()
         {
             Instance = null;
-            enrage.Enraging -= EventHandlers.Enrage.Enraged;
+            enrage.Enraging -= EventHandlers.Enrage.Enreage;
             base.OnDisabled();
         }
     }
