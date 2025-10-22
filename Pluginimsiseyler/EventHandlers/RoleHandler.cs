@@ -1,22 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Exiled.API.Features;
-using Exiled.Events.EventArgs.Player;
-using Exiled.Events.EventArgs.Server;
-using Exiled.Events.Features;
-using LabApi.Events.Arguments.ServerEvents;
-
+using Exiled.CustomRoles.API.Features;
+using PlayerRoles;
+using ServerEvents = Exiled.Events.Handlers.Server;
+using ExPlayer = Exiled.API.Features.Player;
+using Pluginimsiseyler.CustomRoles;
 
 namespace Pluginimsiseyler.EventHandlers
 {
-    internal class RoleHandler
+    public class RoleHandler
     {
-        public static void TurBasi(RoundStartingEventArgs ev)
+        public RoleHandler()
         {
-            Cassie.MessageTranslated("Round started.", "Tur başaldı");
+            // RoundStarted event'ine bağlan
+            ServerEvents.RoundStarted += OnRoundStarted;
+        }
+
+        private async void OnRoundStarted()
+        {
+            // 0.1 saniye gecikme, vanilla spawn için
+            await Task.Delay(100);
+
+            // Round başında tüm oyunculara bak
+            foreach (ExPlayer player in ExPlayer.List)
+            {
+                // Sadece Class-D olanlara custom rol ver
+                if (player.Role.Type == RoleTypeId.ClassD)
+                {
+                    CustomRole.Get(typeof(KaçakçıClassD))?.AddRole(player); ;
+                    
+
+                }
+            }
         }
     }
 }
+//

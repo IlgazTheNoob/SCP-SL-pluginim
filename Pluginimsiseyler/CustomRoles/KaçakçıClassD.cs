@@ -11,33 +11,31 @@ using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Roles;
 using PlayerRoles;
 using Exiled.CustomRoles.API.Features;
+using Exiled.API.Features.Items;
 
 namespace Pluginimsiseyler.CustomRoles
 {
     [CustomRole(PlayerRoles.RoleTypeId.ClassD)]
-    public class KabadayıClassD : CustomRole
+    public class KaçakçıClassD : CustomRole
     {
-        public override string Name { get; set; } = "Kabadayı Class-D";
-        public override int MaxHealth { get; set; } = 150;
-        public override string Description { get; set; } = "Canın normalden daha fazla.";
+        public override string Name { get; set; } = "Kaçakçı Class-D";
+        public override int MaxHealth { get; set; } = 100;
+        public override string Description { get; set; } = "Oyuna bir kart ve ağrı kesici ile başladın";
         public override string CustomInfo { get; set; }
-        public override uint Id { get; set; } = 3000;
+        public override uint Id { get; set; } = 3001;
         public override bool KeepPositionOnSpawn { get; set; } = true;
         public override RoleTypeId Role { get; set; } = RoleTypeId.ClassD;
-        protected override void ShowMessage(Player player)
+        public override List<string> Inventory { get; set; } = new List<string>
         {
-            
-        }
-        protected override void ShowBroadcast(Player player)
-        {
-            
-        }
-    
+            "KeycardScientist",
+            "Painkillers"
+        };
+
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=red>Kabadayı Class-D oldun.</color>");
+            player.Broadcast(5, "<color=red>Kaçakçı Class-D oldun.</color>");
             player.Health = MaxHealth;
         }
-        }
+    }
 }

@@ -1,8 +1,9 @@
 ﻿using Exiled.API.Features;
 using Exiled.CustomItems.API.Features;
+using Exiled.CustomRoles.API;
 using Exiled.Events.Handlers;
 using Exiled.Loader;
-using LabApi.Events.Handlers;
+using Pluginimsiseyler.CustomRoles;
 using Pluginimsiseyler.EventHandlers;
 using enrage = Exiled.Events.Handlers.Scp096;
 using player = Exiled.Events.Handlers.Player;
@@ -12,9 +13,16 @@ namespace Pluginimsiseyler
     public class Class1 : Plugin<Config>
     {
         public static Class1 Instance;
+        public RoleHandler RoleHandler;
+        public static KabadayıClassD KabadayiRole;
+
+
         public override void OnEnabled()
         {
             Instance = this;
+            RoleHandler = new RoleHandler();
+            KabadayiRole = new KabadayıClassD();
+            KabadayiRole.Register();
             enrage.AddingTarget += EventHandlers.OnEnraging.OnEnragingStart;
             player.Verified += EventHandlers.Verified.OnVerified;
             

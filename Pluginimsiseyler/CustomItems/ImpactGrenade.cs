@@ -34,6 +34,10 @@ namespace Pluginimsiseyler.CustomItems
         {
             
         }
+        protected override void ShowSelectedMessage(Player player)
+        {
+            
+        }
 
         public override SpawnProperties SpawnProperties { get; set; } = new()
         {
