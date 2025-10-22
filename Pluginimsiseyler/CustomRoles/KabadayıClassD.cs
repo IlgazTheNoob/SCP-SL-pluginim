@@ -32,7 +32,9 @@ namespace Pluginimsiseyler.CustomRoles
         {
             
         }
-    
+        public override bool KeepRoleOnChangingRole { get; set; } = false;
+        public override bool KeepRoleOnDeath { get; set; } = false;
+
         public override void AddRole(Player player)
         {
             base.AddRole(player);

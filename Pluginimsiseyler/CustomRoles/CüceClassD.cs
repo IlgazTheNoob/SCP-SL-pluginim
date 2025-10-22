@@ -11,26 +11,22 @@ using Exiled.API.Features.Attributes;
 using Exiled.API.Features.Roles;
 using PlayerRoles;
 using Exiled.CustomRoles.API.Features;
-using Exiled.API.Features.Items;
+using UnityEngine;
+using CustomPlayerEffects;
+
 
 namespace Pluginimsiseyler.CustomRoles
 {
     [CustomRole(PlayerRoles.RoleTypeId.ClassD)]
-    public class KaçakçıClassD : CustomRole
-    {
-        
-        public override string Name { get; set; } = "Kaçakçı Class-D";
-        public override int MaxHealth { get; set; } = 100;
-        public override string Description { get; set; } = "Oyuna bir kart ve ağrı kesici ile başladın";
+    public class CüceClassD : CustomRole
+    {  
+        public override string Name { get; set; } = "Cüce Class-D";
+        public override int MaxHealth { get; set; } = 150;
+        public override string Description { get; set; } = "Kısasın ama hızlısın.";
         public override string CustomInfo { get; set; }
-        public override uint Id { get; set; } = 3001;
+        public override uint Id { get; set; } = 3002;
         public override bool KeepPositionOnSpawn { get; set; } = true;
         public override RoleTypeId Role { get; set; } = RoleTypeId.ClassD;
-        public override List<string> Inventory { get; set; } = new List<string>
-        {
-            "KeycardScientist",
-            "Painkillers"
-        };
         protected override void ShowMessage(Player player)
         {
 
@@ -39,15 +35,17 @@ namespace Pluginimsiseyler.CustomRoles
         {
 
         }
+        public override Vector3 Scale { get; set; } = Class1.Instance.Config.CüceBoy;
         public override bool KeepRoleOnChangingRole { get; set; } = false;
         public override bool KeepRoleOnDeath { get; set; } = false;
 
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=red>Kaçakçı Class-D oldun.</color>");
+            player.Broadcast(5, "<color=red>Cüce Class-D oldun.</color>");
             player.Health = MaxHealth;
-            
+            player.EnableEffect<MovementBoost>(0, true);
+            player.ChangeEffectIntensity<MovementBoost>(Class1.Instance.Config.CüceHız, 0);
         }
     }
 }

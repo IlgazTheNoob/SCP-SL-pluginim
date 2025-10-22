@@ -15,7 +15,8 @@ namespace Pluginimsiseyler
         public static Class1 Instance;
         public RoleHandler RoleHandler;
         public static KabadayıClassD KabadayiRole;
-
+        public static KaçakçıClassD KacakciRole;
+        public static CüceClassD CüceDRole;
 
         public override void OnEnabled()
         {
@@ -23,6 +24,10 @@ namespace Pluginimsiseyler
             RoleHandler = new RoleHandler();
             KabadayiRole = new KabadayıClassD();
             KabadayiRole.Register();
+            KacakciRole = new KaçakçıClassD();
+            KacakciRole.Register();
+            CüceDRole = new CüceClassD();
+            CüceDRole.Register();
             enrage.AddingTarget += EventHandlers.OnEnraging.OnEnragingStart;
             player.Verified += EventHandlers.Verified.OnVerified;
             

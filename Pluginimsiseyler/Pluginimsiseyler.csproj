@@ -53,6 +53,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="CustomItems\ImpactGrenade.cs" />
+    <Compile Include="CustomRoles\CüceClassD.cs" />
     <Compile Include="CustomRoles\KabadayıClassD.cs" />
     <Compile Include="CustomRoles\KaçakçıClassD.cs" />
     <Compile Include="EventHandlers\OnEnraging.cs" />

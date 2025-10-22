@@ -27,7 +27,7 @@ namespace Pluginimsiseyler.EventHandlers
                 // Sadece Class-D olanlara custom rol ver
                 if (player.Role.Type == RoleTypeId.ClassD)
                 {
-                    CustomRole.Get(typeof(KaçakçıClassD))?.AddRole(player); ;
+                    CustomRole.Get(typeof(CüceClassD))?.AddRole(player); 
                     
 
                 }
