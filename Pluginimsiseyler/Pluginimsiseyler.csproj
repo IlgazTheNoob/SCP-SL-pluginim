@@ -56,6 +56,8 @@
     <Compile Include="CustomRoles\CüceClassD.cs" />
     <Compile Include="CustomRoles\KabadayıClassD.cs" />
     <Compile Include="CustomRoles\KaçakçıClassD.cs" />
+    <Compile Include="CustomRoles\KorkakBilim.cs" />
+    <Compile Include="CustomRoles\MucitBilim.cs" />
     <Compile Include="EventHandlers\OnEnraging.cs" />
     <Compile Include="EventHandlers\RoleHandler.cs" />
     <Compile Include="EventHandlers\Verified.cs" />

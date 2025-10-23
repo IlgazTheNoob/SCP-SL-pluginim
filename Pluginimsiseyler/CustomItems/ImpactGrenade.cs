@@ -77,6 +77,7 @@ namespace Pluginimsiseyler.CustomItems
         }
         protected override void UnsubscribeEvents()
         {
+            EPlayer.PickingUpItem -= OnPickingUp;
             base.UnsubscribeEvents();
         }
 

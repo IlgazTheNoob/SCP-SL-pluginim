@@ -10,5 +10,6 @@ namespace Pluginimsiseyler
 
         public Vector3 CüceBoy { get; set; } = new Vector3(1f, 0.375f, 1f);
         public byte CüceHız { get; set; } = 20;
+        public byte KorkakHız { get; set; } = 20;
     }
 }

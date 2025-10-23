@@ -42,7 +42,7 @@ namespace Pluginimsiseyler.CustomRoles
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=red>Cüce Class-D oldun.</color>");
+            player.Broadcast(5, "<color=orange>Cüce Class-D oldun.</color>");
             player.Health = MaxHealth;
             player.EnableEffect<MovementBoost>(0, true);
             player.ChangeEffectIntensity<MovementBoost>(Class1.Instance.Config.CüceHız, 0);

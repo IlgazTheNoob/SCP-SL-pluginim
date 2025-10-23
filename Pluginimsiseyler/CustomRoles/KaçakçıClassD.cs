@@ -45,7 +45,7 @@ namespace Pluginimsiseyler.CustomRoles
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=red>Kaçakçı Class-D oldun.</color>");
+            player.Broadcast(5, "<color=orange>Kaçakçı Class-D oldun.</color>");
             player.Health = MaxHealth;
             
         }

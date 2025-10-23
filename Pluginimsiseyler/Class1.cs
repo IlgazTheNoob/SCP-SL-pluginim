@@ -8,6 +8,7 @@ using Pluginimsiseyler.EventHandlers;
 using enrage = Exiled.Events.Handlers.Scp096;
 using player = Exiled.Events.Handlers.Player;
 using server = Exiled.Events.Handlers.Server;
+using Exiled.CustomItems;
 namespace Pluginimsiseyler
 {
     public class Class1 : Plugin<Config>
@@ -17,6 +18,8 @@ namespace Pluginimsiseyler
         public static KabadayıClassD KabadayiRole;
         public static KaçakçıClassD KacakciRole;
         public static CüceClassD CüceDRole;
+        public static KorkakBilim KorkakRole;
+        public static MucitBilim MucitRole;
 
         public override void OnEnabled()
         {
@@ -28,11 +31,16 @@ namespace Pluginimsiseyler
             KacakciRole.Register();
             CüceDRole = new CüceClassD();
             CüceDRole.Register();
+            KorkakRole = new KorkakBilim();
+            KorkakRole.Register();
+            MucitRole = new MucitBilim();
+            MucitRole.Register();
             enrage.AddingTarget += EventHandlers.OnEnraging.OnEnragingStart;
             player.Verified += EventHandlers.Verified.OnVerified;
-            
             CustomItem.RegisterItems();
-             base.OnEnabled();   
+
+
+            base.OnEnabled();   
         }
 
         public override void OnDisabled()

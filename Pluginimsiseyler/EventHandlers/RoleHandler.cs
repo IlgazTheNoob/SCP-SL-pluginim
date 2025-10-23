@@ -5,6 +5,10 @@ using PlayerRoles;
 using ServerEvents = Exiled.Events.Handlers.Server;
 using ExPlayer = Exiled.API.Features.Player;
 using Pluginimsiseyler.CustomRoles;
+using System;
+using UnityEngine;
+using System.Security.Cryptography;
+
 
 namespace Pluginimsiseyler.EventHandlers
 {
@@ -12,27 +16,50 @@ namespace Pluginimsiseyler.EventHandlers
     {
         public RoleHandler()
         {
-            // RoundStarted event'ine bağlan
+            
             ServerEvents.RoundStarted += OnRoundStarted;
         }
 
         private async void OnRoundStarted()
         {
-            // 0.1 saniye gecikme, vanilla spawn için
+            
             await Task.Delay(100);
 
-            // Round başında tüm oyunculara bak
+            
             foreach (ExPlayer player in ExPlayer.List)
             {
-                // Sadece Class-D olanlara custom rol ver
-                if (player.Role.Type == RoleTypeId.ClassD)
-                {
-                    CustomRole.Get(typeof(CüceClassD))?.AddRole(player); 
-                    
+                
 
+                if(player.Role.Type == RoleTypeId.ClassD) {
+                    float randomRole = UnityEngine.Random.Range(1, 6);
+                    if (randomRole == 1)
+                    {              
+                        CustomRole.Get(typeof(CüceClassD))?.AddRole(player);
+                    }
+                    if (randomRole == 2)
+                    {                                      
+                        CustomRole.Get(typeof(KabadayıClassD))?.AddRole(player);                   
+                    }
+                    if (randomRole == 3)
+                    {                                       
+                        CustomRole.Get(typeof(KaçakçıClassD))?.AddRole(player);
+                    }
                 }
+                if (player.Role.Type == RoleTypeId.Scientist)
+                {
+                    float randomRole = UnityEngine.Random.Range(1, 4);
+                    if (randomRole == 1)
+                    {
+                        CustomRole.Get(typeof(KorkakBilim))?.AddRole(player);
+                    }
+                    if (randomRole == 2)
+                    {
+                        CustomRole.Get(typeof(MucitBilim))?.AddRole(player);
+                    }
+                    
+                }
+
             }
         }
     }
 }
-//
