@@ -32,13 +32,13 @@ namespace Pluginimsiseyler.CustomRoles
         {
             
         }
-        public override bool KeepRoleOnChangingRole { get; set; } = false;
+        public override bool KeepRoleOnChangingRole { get; set; } = true;
         public override bool KeepRoleOnDeath { get; set; } = false;
 
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=orange>Kabadayı Class-D oldun.</color>");
+            player.Broadcast(5, "<color=orange>Kabadayı Class-D</color>  oldun.");
             player.Health = MaxHealth;
         }
         }

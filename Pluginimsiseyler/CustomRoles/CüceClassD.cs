@@ -21,7 +21,7 @@ namespace Pluginimsiseyler.CustomRoles
     public class CüceClassD : CustomRole
     {  
         public override string Name { get; set; } = "Cüce Class-D";
-        public override int MaxHealth { get; set; } = 150;
+        public override int MaxHealth { get; set; } = 100;
         public override string Description { get; set; } = "Kısasın ama hızlısın.";
         public override string CustomInfo { get; set; }
         public override uint Id { get; set; } = 3002;
@@ -36,13 +36,15 @@ namespace Pluginimsiseyler.CustomRoles
 
         }
         public override Vector3 Scale { get; set; } = Class1.Instance.Config.CüceBoy;
-        public override bool KeepRoleOnChangingRole { get; set; } = false;
+        public override bool KeepRoleOnChangingRole { get; set; } = true;
         public override bool KeepRoleOnDeath { get; set; } = false;
+        
+        
 
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=orange>Cüce Class-D oldun.</color>");
+            player.Broadcast(5, "<color=orange>Cüce Class-D</color>  oldun.");
             player.Health = MaxHealth;
             player.EnableEffect<MovementBoost>(0, true);
             player.ChangeEffectIntensity<MovementBoost>(Class1.Instance.Config.CüceHız, 0);

@@ -1,6 +1,7 @@
 ﻿using Exiled.API.Extensions;
-using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
+using InventorySystem;
+using PluginAPI.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,11 @@ using System.Threading.Tasks;
 
 namespace Pluginimsiseyler.EventHandlers
 {
-    public static class Verified
+    internal class Escaped
     {
-        public static void OnVerified(VerifiedEventArgs ev)
+        public void PlayerEscaped(EscapingEventArgs player)
         {
-            
-            ev.Player.ShowHint("Hoşgeldin " + ev.Player.DisplayNickname + "!", 8);
+            List<string> escaped = player.Player.Items.Select(x => x.ToString()).ToList();
             
         }
     }

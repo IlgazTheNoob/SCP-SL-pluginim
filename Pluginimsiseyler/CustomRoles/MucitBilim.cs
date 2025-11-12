@@ -24,7 +24,7 @@ namespace Pluginimsiseyler.CustomRoles
     {
         public override string Name { get; set; } = "Mucit Bilim Adamı";
         public override string Description { get; set; } = "Oyuna ekstra bir SCP-500 ve Yüzey Erişim Kartı ile başlarsın.";
-        public override uint Id { get; set; } = 3004;
+        public override uint Id { get; set; } = 3005;
         public override string CustomInfo { get; set; }
         public override int MaxHealth { get; set; } = 100;
         public override RoleTypeId Role { get; set; } = RoleTypeId.Scientist;
@@ -37,20 +37,22 @@ namespace Pluginimsiseyler.CustomRoles
         {
 
         }
-        public override bool KeepRoleOnChangingRole { get; set; } = false;
+        public override bool KeepRoleOnChangingRole { get; set; } = true;
         public override bool KeepRoleOnDeath { get; set; } = false;
 
-        public override bool KeepInventoryOnSpawn { get; set; } = true;
+        public override bool KeepInventoryOnSpawn { get; set; } = false;
         public override List<string> Inventory { get; set; } = new List<string>
         {
             "SurfaceAccessPass",
-            "Adrenaline"
+            "Adrenaline",
+            "KeycardScientist",
+            "Medkit"
         };
 
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=orange>Mucit Bilim adamı oldun.</color>");
+            player.Broadcast(5, "<color=yellow>Mucit Bilim adamı</color>  oldun.");
             player.Health = MaxHealth;
             
         }

@@ -23,7 +23,7 @@ namespace Pluginimsiseyler.CustomRoles
     {
         public override string Name { get; set; } = "Korkak Bilim Adamı";
         public override string Description { get; set; } = "Normal bir insandan daha hızlısın.";
-        public override uint Id { get; set; } = 3003;
+        public override uint Id { get; set; } = 3004;
         public override string CustomInfo { get; set; }
         public override int MaxHealth { get; set; } = 100;
         public override RoleTypeId Role { get; set; } = RoleTypeId.Scientist;
@@ -36,13 +36,14 @@ namespace Pluginimsiseyler.CustomRoles
         {
 
         }
-        public override bool KeepRoleOnChangingRole { get; set; } = false;
+        public override bool KeepRoleOnChangingRole { get; set; } = true;
         public override bool KeepRoleOnDeath { get; set; } = false;
+        public override bool KeepInventoryOnSpawn { get; set; } = true;
 
         public override void AddRole(Player player)
         {
             base.AddRole(player);
-            player.Broadcast(5, "<color=Yellow>Korkak Bilim adamı oldun.</color>");
+            player.Broadcast(5, "<color=Yellow>Korkak Bilim adamı</color>  oldun.");
             player.Health = MaxHealth;
             player.EnableEffect<MovementBoost>(0, true);
             player.ChangeEffectIntensity<MovementBoost>(Class1.Instance.Config.KorkakHız, 0);

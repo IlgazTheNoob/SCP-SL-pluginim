@@ -1,14 +1,16 @@
 ﻿using Exiled.API.Features;
+using Exiled.CustomItems;
+using Exiled.CustomItems.API;
 using Exiled.CustomItems.API.Features;
 using Exiled.CustomRoles.API;
 using Exiled.Events.Handlers;
 using Exiled.Loader;
+using Pluginimsiseyler.CustomItems;
 using Pluginimsiseyler.CustomRoles;
 using Pluginimsiseyler.EventHandlers;
 using enrage = Exiled.Events.Handlers.Scp096;
 using player = Exiled.Events.Handlers.Player;
 using server = Exiled.Events.Handlers.Server;
-using Exiled.CustomItems;
 namespace Pluginimsiseyler
 {
     public class Class1 : Plugin<Config>
@@ -20,6 +22,11 @@ namespace Pluginimsiseyler
         public static CüceClassD CüceDRole;
         public static KorkakBilim KorkakRole;
         public static MucitBilim MucitRole;
+        public static KaosClassD KaosRole;
+        public static OneUseCICard CICard;
+        public static AmirGuard AmirRole;
+        public static KıdemliGuard KıdemliRole;
+        
 
         public override void OnEnabled()
         {
@@ -31,12 +38,24 @@ namespace Pluginimsiseyler
             KacakciRole.Register();
             CüceDRole = new CüceClassD();
             CüceDRole.Register();
+            KaosRole = new KaosClassD();
+            KaosRole.Register();
             KorkakRole = new KorkakBilim();
             KorkakRole.Register();
             MucitRole = new MucitBilim();
-            MucitRole.Register();
-            enrage.AddingTarget += EventHandlers.OnEnraging.OnEnragingStart;
+            MucitRole.Register();        
+            AmirRole = new AmirGuard();
+            AmirRole.Register();
+            KıdemliRole = new KıdemliGuard();
+            KıdemliRole.Register();
             player.Verified += EventHandlers.Verified.OnVerified;
+           
+
+
+
+
+            CICard = new OneUseCICard();
+            CICard.Register();
             CustomItem.RegisterItems();
 
 
@@ -46,7 +65,7 @@ namespace Pluginimsiseyler
         public override void OnDisabled()
         {
             Instance = null;
-            enrage.AddingTarget -= EventHandlers.OnEnraging.OnEnragingStart;
+            
             player.Verified -= EventHandlers.Verified.OnVerified;
             CustomItem.UnregisterItems();
             base.OnDisabled();

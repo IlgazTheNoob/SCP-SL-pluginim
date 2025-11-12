@@ -8,6 +8,8 @@ using Pluginimsiseyler.CustomRoles;
 using System;
 using UnityEngine;
 using System.Security.Cryptography;
+using Exiled.CustomItems;
+using InventorySystem;
 
 
 namespace Pluginimsiseyler.EventHandlers
@@ -24,7 +26,7 @@ namespace Pluginimsiseyler.EventHandlers
         {
             
             await Task.Delay(100);
-
+            bool amirgiven = false;
             
             foreach (ExPlayer player in ExPlayer.List)
             {
@@ -44,6 +46,7 @@ namespace Pluginimsiseyler.EventHandlers
                     {                                       
                         CustomRole.Get(typeof(KaçakçıClassD))?.AddRole(player);
                     }
+                    
                 }
                 if (player.Role.Type == RoleTypeId.Scientist)
                 {
@@ -57,6 +60,21 @@ namespace Pluginimsiseyler.EventHandlers
                         CustomRole.Get(typeof(MucitBilim))?.AddRole(player);
                     }
                     
+                }
+                if (player.Role.Type == RoleTypeId.FacilityGuard)
+                {
+                    float randomRole = UnityEngine.Random.Range(1, 3);
+                    if (!amirgiven) 
+                    {
+                        player.ClearInventory();
+                        CustomRole.Get(typeof(AmirGuard))?.AddRole(player);
+                        amirgiven = true;
+                    }
+                    if(randomRole == 1)
+                    {
+                        player.ClearInventory();
+                        CustomRole.Get(typeof(KıdemliGuard))?.AddRole(player);
+                    }
                 }
 
             }
