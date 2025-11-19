@@ -33,9 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\Desktop\sltest\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp-Publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EXILED-OFFICIAL.8.12.2\lib\net48\Assembly-CSharp-Publicized.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Mirror">
+      <HintPath>..\..\..\..\Desktop\sltest\SCPSL_Data\Managed\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,7 +59,6 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="CustomItems\ImpactGrenade.cs" />
-    <Compile Include="CustomItems\OneUseCICard.cs" />
     <Compile Include="CustomItems\RandomCola.cs" />
     <Compile Include="CustomRoles\AmirGuard.cs" />
     <Compile Include="CustomRoles\CüceClassD.cs" />

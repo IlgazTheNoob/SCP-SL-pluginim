@@ -23,7 +23,6 @@ namespace Pluginimsiseyler
         public static KorkakBilim KorkakRole;
         public static MucitBilim MucitRole;
         public static KaosClassD KaosRole;
-        public static OneUseCICard CICard;
         public static AmirGuard AmirRole;
         public static KıdemliGuard KıdemliRole;
         
@@ -54,8 +53,7 @@ namespace Pluginimsiseyler
 
 
 
-            CICard = new OneUseCICard();
-            CICard.Register();
+            
             CustomItem.RegisterItems();
 
 
